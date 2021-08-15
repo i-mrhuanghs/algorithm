@@ -11,7 +11,29 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        nums1[:] = nums1[:m] + nums2[:n]
-        nums1.sort()
+        # 创建三个指针
+        i = m-1
+        j = n-1
+        k = m+n-1
+        while i >= 0 or j >= 0:
+        # j < 0, i&k向左移
+            if j < 0:
+                nums1[k] = nums1[i]
+                i -= 1
+        # j < 0, j&k向左移
+            elif i < 0:
+                nums1[k] = nums2[j]
+                j -= 1
+        # i > j, i&k向左移
+            elif nums1[i] > nums2[j]:
+                nums1[k] = nums1[i]
+                i -= 1
+        # i < j, j&k向左移
+            else:
+                nums1[k] = nums2[j]
+                j -= 1
+            k -= 1
+
+
 # @lc code=end
 

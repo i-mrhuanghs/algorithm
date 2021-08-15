@@ -11,12 +11,16 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        n = len(nums)
-        left = right = 0
-        while right < n:
-            if nums[right] != 0:
-                nums[left], nums[right] = nums[right], nums[left]
-                left += 1
-            right += 1
+        # 定义两个指针 fast,slow
+        # 遍历一次
+        # fast和slow一开始指向同一个位置，如果fast为真不为0，和slow交换位置，其实是原地不动的，然后两个指针同时往前走
+        # 如果这次是0 fast往前走就会留下slow，slow指向0
+        j = 0
+        for i in range(len(nums)):
+            if nums[i]:
+                nums[j], nums[i] = nums[i], nums[j]
+                j += 1
+
+
 # @lc code=end
 

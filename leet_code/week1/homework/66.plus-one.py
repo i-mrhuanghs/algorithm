@@ -11,4 +11,3 @@ class Solution:
         digitStr = "".join(map(str,digits))
         return map(int,str(int(digitStr)+1))
 # @lc code=end
-
